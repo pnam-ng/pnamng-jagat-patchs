@@ -132,3 +132,5 @@ node_modules/
 # Ignore IDEA files
 .idea/
 local.properties
+original_cert.bin
+
