@@ -1,60 +1,76 @@
-# 🧭 Jagat Morphe Patches (`io.jagat.lite`)
+# Jagat Morphe Patches
 
-Bộ patch chính thức dành cho ứng dụng **Jagat** (phiên bản `6.8.4` và các bản cập nhật tiếp theo) được phát triển trên nền tảng **Morphe Patcher**.
+Official patch bundle for **Jagat** (`io.jagat.lite`) built for the **Morphe Patcher** ecosystem.
 
----
-
-## 🌟 Các tính năng nổi bật (Features)
-
-### 1. 🚫 Chặn quảng cáo toàn diện (Block Ads) - *Ưu tiên số 1*
-- **Triệt tiêu TopOn Mediation SDK**: Hook trực tiếp vào `TopOnAdManager`, vô hiệu hóa hàm `init()`, `start()`, `loadSplashAd()`, `loadBannerAd()`, `loadInterstitialAd()`.
-- **Chặn ScreenAdActivity**: Ngăn chặn hoàn toàn activity quảng cáo bật lên che kín màn hình khi mở và sử dụng app; tự động đóng ngay lập tức nếu được kích hoạt.
-- **Dừng nạp video chạy ngầm (`ScreenAdFetch`)**: Ngăn app âm thầm tải video quảng cáo về bộ nhớ máy, tiết kiệm tối đa băng thông mạng (4G/5G).
-- **Vô hiệu hóa AdConfig & Banner**: Ghi đè `AdConfigManager.getConfigIsShow()` trả về `false`, ẩn triệt để các khung quảng cáo trong tab User Center (`UserAdsBannerView`, `AdsView`).
-
-### 2. 📍 Tùy chỉnh vị trí & Chế độ bóng ma (Ghost Mode)
-- **Đóng băng vị trí (Freeze Location)**: Cho phép giữ nguyên toạ độ thực tế tại một vị trí cố định, không gửi toạ độ mới lên server khi bạn di chuyển.
-- **Giả lập toạ độ tuỳ chỉnh (Mock Location)**: Ghi đè kinh độ/vĩ độ theo mong muốn.
-- **Bypass kiểm tra Fake GPS**: Tự động xóa cờ `isFromMockProvider()` trên đối tượng `Location` trước khi ứng dụng gửi dữ liệu đi, đảm bảo tính ẩn danh và an toàn cho tài khoản.
-
-### 3. 🔋 Tối ưu pin & Giảm tải dịch vụ nền (Battery Optimization)
-- **Hạn chế giữ WakeLock**: Giảm tải tần suất chạy của `LongTimeLocWorker` và `PowerSaverReceiver` khi thiết bị đang tắt màn hình.
-- Giảm thiểu tình trạng máy nóng và tụt pin do chip GPS bị kích hoạt quét liên tục.
+Tested target: **6.8.4** (Version Code: `417`).
 
 ---
 
-## 📱 Cách áp dụng bản patch
+## Features
 
-### Cách 1: Sử dụng Morphe Manager trên điện thoại Android (Khuyên dùng)
-1. Cài đặt **Morphe Manager** trên thiết bị Android.
-2. Mở ứng dụng **Morphe Manager** -> Chuyển đến mục **Settings** -> **Sources**.
-3. Thêm URL repository GitHub của bạn vào mục **Custom Patch Source**:
+### 1. Ad Blocking (Priority)
+- **TopOn Mediation Disabled**: Hooks into `TopOnAdManager` and short-circuits initialization, splash ads, banner ads, and interstitial ad requests.
+- **ScreenAdActivity Suppressed**: Automatically dismisses fullscreen popup ads on launch and during app usage by calling `finish()` immediately.
+- **Background Video Fetch Blocked**: Stops `ScreenAdFetch` from quietly downloading video ad assets in the background, saving mobile data and storage.
+- **In-App Ad Views Hidden**: Forces `AdConfigManager.getConfigIsShow()` to return `false` and collapses promotional ad containers (`UserAdsBannerView`, `AdsView`) to `View.GONE`.
+
+### 2. Location Customization & Ghost Mode
+- **Freeze Location**: Locks your reported coordinates to a static position so your friends see you in place even when you move.
+- **Mock Coordinates**: Allows injecting custom latitude and longitude values.
+- **Stealth / Anti-Detection**: Clears the `isFromMockProvider` flag from the `Location` object before Jagat's services transmit it upstream.
+
+### 3. Battery Optimization
+- **Idle Polling Throttle**: Checks display state inside `LongTimeLocWorker.doWork()`. When the screen is off, background GPS pings are throttled and wakelocks are released immediately.
+- Prevents phone overheating and reduces battery drain caused by continuous location tracking.
+
+---
+
+## Usage
+
+### Method 1: Using Morphe Manager (Android)
+
+1. Open **Morphe Manager** on your Android device.
+2. Navigate to **Settings** > **Sources**.
+3. Tap **Add Source** (`+`) and enter:
    ```text
-   https://github.com/pnam-ng/pnamng-jagat-patchs
+   pnam-ng/pnamng-jagat-patchs
    ```
-4. Chọn ứng dụng **Jagat**, tick chọn các patch mong muốn:
+   *(or the full URL: `https://github.com/pnam-ng/pnamng-jagat-patchs`)*
+4. Go back to the **Apps** tab, select **Jagat** (`io.jagat.lite`), and choose your desired patches:
    - `Chặn quảng cáo (Block Ads)`
    - `Chỉnh sửa vị trí & Đóng băng toạ độ (Ghost Mode)`
    - `Tối ưu pin & Giảm tải nền (Battery Optimization)`
-5. Nhấn **Patch** và cài đặt file APK hoàn thiện.
+5. Tap **Patch** and install the generated APK.
 
 ---
 
-### Cách 2: Tự động phát hành qua GitHub Actions (Official Release)
-Repository này đã được tích hợp sẵn workflow tự động hoá hoàn chỉnh tại `.github/workflows/release.yml`:
-1. Đẩy mã nguồn lên GitHub:
-   ```bash
-   git remote set-url origin https://github.com/pnam-ng/pnamng-jagat-patchs.git
-   git push -u origin main
-   ```
-2. GitHub Actions sẽ tự động biên dịch, ký số và phát hành file `patches-x.x.x.mpp` kèm theo metadata `patches-list.json` trên mục **Releases**.
+### Method 2: Build from Source
 
----
+Requirements:
+- Android SDK (API 26+)
+- JDK 17 or higher
 
-### Cách 3: Biên dịch thủ công trên máy tính
-Để build lại file bundle `.mpp`:
+Clone and compile the `.mpp` patch bundle:
+
 ```bash
+git clone https://github.com/pnam-ng/pnamng-jagat-patchs.git
+cd pnamng-jagat-patchs
 ./gradlew :patches:buildAndroid
 ```
-File bundle đầu ra sẽ nằm tại:
-`patches/build/libs/patches-1.0.0.mpp`
+
+The compiled patch bundle will be generated at:
+```text
+patches/build/libs/patches-1.0.0.mpp
+```
+
+---
+
+## Automated Releases
+
+This repository uses GitHub Actions (`.github/workflows/release.yml`) with semantic-release to automatically build, test, and attach `.mpp` bundles to GitHub Releases whenever changes land on the `main` branch.
+
+---
+
+## License
+
+GPL-3.0 License.
