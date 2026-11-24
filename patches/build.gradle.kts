@@ -16,7 +16,7 @@ patches {
     about {
         name = "Jagat Morphe Patches"
         description = "Bản patch tối ưu Jagat: Chặn quảng cáo, Chỉnh/Đóng băng vị trí, Tối ưu pin"
-        source = "https://github.com/pnam-ng/pnamng-morphe-patchs"
+        source = "https://github.com/pnam-ng/pnamng-jagat-patchs"
         author = "pnam-ng"
         contact = "na"
         website = "https://morphe.software"
