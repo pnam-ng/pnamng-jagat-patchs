@@ -1,5 +1,117 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "0.0.0",
-  "patches": []
+  "version": "1.0.0",
+  "patches": [
+    {
+      "name": "Chặn quảng cáo (Block Ads)",
+      "description": "Triệt tiêu toàn bộ quảng cáo TopOn, ScreenAdActivity, nạp video nền, banner và startup ads trong Jagat.",
+      "default": true,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "io.jagat.lite",
+          "name": "Jagat",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": "#FF5722",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "6.8.4",
+              "versionCodes": {
+                "ARM64_V8A": 417,
+                "ARMEABI_V7A": 417
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": true,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Chỉnh sửa vị trí & Đóng băng toạ độ (Ghost Mode)",
+      "description": "Cho phép đóng băng toạ độ thực tế (Freeze) hoặc ghi đè toạ độ giả lập (Mock Location) ẩn danh.",
+      "default": true,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "io.jagat.lite",
+          "name": "Jagat",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": "#FF5722",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "6.8.4",
+              "versionCodes": {
+                "ARM64_V8A": 417,
+                "ARMEABI_V7A": 417
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": true,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Tối ưu pin & Giảm tải nền (Battery Optimization)",
+      "description": "Tự động hạn chế GPS polling liên tục khi tắt màn hình, tối ưu tần suất của LongTimeLocWorker.",
+      "default": true,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "io.jagat.lite",
+          "name": "Jagat",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": "#FF5722",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "6.8.4",
+              "versionCodes": {
+                "ARM64_V8A": 417,
+                "ARMEABI_V7A": 417
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": true,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    }
+  ]
 }

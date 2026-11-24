@@ -10,17 +10,16 @@ plugins {
     alias(libs.plugins.animalsniffer)
 }
 
-group = "app.template"
+group = "app.jagat"
 
 patches {
-    // TODO: Update this section with your project details.
     about {
-        name = "UserXYZ Patches"
-        description = "Patches for apps I like"
-        source = "git@github.com:UserXYZ/morphe-patches.git"
-        author = "Awesome dev"
+        name = "Jagat Morphe Patches"
+        description = "Bản patch tối ưu Jagat: Chặn quảng cáo, Chỉnh/Đóng băng vị trí, Tối ưu pin"
+        source = "https://github.com/morphe/jagat-morphe"
+        author = "Morphe Community"
         contact = "na"
-        website = "na"
+        website = "https://morphe.software"
         license = "GPLv3"
     }
 }
