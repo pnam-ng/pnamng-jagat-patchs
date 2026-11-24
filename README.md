@@ -30,7 +30,7 @@ Bộ patch chính thức dành cho ứng dụng **Jagat** (phiên bản `6.8.4` 
 2. Mở ứng dụng **Morphe Manager** -> Chuyển đến mục **Settings** -> **Sources**.
 3. Thêm URL repository GitHub của bạn vào mục **Custom Patch Source**:
    ```text
-   https://github.com/<your-username>/jagat-morphe
+   https://github.com/pnam-ng/pnamng-morphe-patchs
    ```
 4. Chọn ứng dụng **Jagat**, tick chọn các patch mong muốn:
    - `Chặn quảng cáo (Block Ads)`
@@ -44,10 +44,7 @@ Bộ patch chính thức dành cho ứng dụng **Jagat** (phiên bản `6.8.4` 
 Repository này đã được tích hợp sẵn workflow tự động hoá hoàn chỉnh tại `.github/workflows/release.yml`:
 1. Đẩy mã nguồn lên GitHub:
    ```bash
-   git init
-   git add .
-   git commit -m "feat: initial jagat morphe patches"
-   git remote add origin https://github.com/<your-username>/jagat-morphe.git
+   git remote set-url origin https://github.com/pnam-ng/pnamng-morphe-patchs.git
    git push -u origin main
    ```
 2. GitHub Actions sẽ tự động biên dịch, ký số và phát hành file `patches-x.x.x.mpp` kèm theo metadata `patches-list.json` trên mục **Releases**.
