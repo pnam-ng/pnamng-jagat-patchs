@@ -77,6 +77,43 @@
       "options": []
     },
     {
+      "name": "Sửa lỗi đăng nhập Facebook (Fix Facebook Login)",
+      "description": "Khắc phục lỗi 'Invalid key hash' khi đăng nhập Facebook, tự động giả lập mã hash gốc của Jagat và chuyển hướng đăng nhập an toàn qua trình duyệt.",
+      "default": true,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "io.jagat.lite",
+          "name": "Jagat",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": "#FF5722",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "6.8.4",
+              "versionCodes": {
+                "ARM64_V8A": 417,
+                "ARMEABI_V7A": 417
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": true,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Tối ưu pin & Giảm tải nền (Battery Optimization)",
       "description": "Tự động hạn chế GPS polling liên tục khi tắt màn hình, tối ưu tần suất của LongTimeLocWorker.",
       "default": true,
